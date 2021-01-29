@@ -20,6 +20,8 @@ RUN conda install --yes \
 
 COPY prepare.sh /usr/bin/prepare.sh
 
+RUN apt-get install gcc -y
+RUN pip install -r req.txt
 RUN mkdir /opt/app
 
 ENTRYPOINT ["tini", "-g", "--", "/usr/bin/prepare.sh"]
